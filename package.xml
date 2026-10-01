@@ -18,6 +18,7 @@
   <depend>livox_health_monitor</depend>
   <depend>rcutils</depend>
   <depend>pcl_conversions</depend>
+  <depend>eigen</depend>
   <depend>rcl_interfaces</depend>
   <depend>libpcl-all-dev</depend>
   <depend>builtin_interfaces</depend>

@@ -27,6 +27,7 @@ find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 
 find_package(PCL REQUIRED)
+find_package(Eigen3 REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
@@ -113,6 +114,7 @@ rosidl_get_typesupport_target(
 target_link_libraries(${PROJECT_NAME}
   ${LIVOX_LIDAR_SDK_LIBRARY}
   ${PCL_LIBRARIES}
+  Eigen3::Eigen
   ${cpp_typesupport_target}
 )
 

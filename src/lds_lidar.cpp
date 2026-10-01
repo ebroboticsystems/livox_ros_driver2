@@ -159,29 +159,30 @@ bool LdsLidar::InitLivoxLidar() {
     LidarExtParameter lidar_param;
     lidar_param.handle = config.handle;
     lidar_param.lidar_type = kLivoxLidarType;
-    // if (config.pcl_data_type == kLivoxLidarCartesianCoordinateLowData) {
-    //   // temporary resolution
-    //   lidar_param.param.roll  = config.extrinsic_param.roll;
-    //   lidar_param.param.pitch = config.extrinsic_param.pitch;
-    //   lidar_param.param.yaw   = config.extrinsic_param.yaw;
-    //   lidar_param.param.x     = config.extrinsic_param.x / 10;
-    //   lidar_param.param.y     = config.extrinsic_param.y / 10;
-    //   lidar_param.param.z     = config.extrinsic_param.z / 10;
-    // } else {
-    //   lidar_param.param.roll  = config.extrinsic_param.roll;
-    //   lidar_param.param.pitch = config.extrinsic_param.pitch;
-    //   lidar_param.param.yaw   = config.extrinsic_param.yaw;
-    //   lidar_param.param.x     = config.extrinsic_param.x;
-    //   lidar_param.param.y     = config.extrinsic_param.y;
-    //   lidar_param.param.z     = config.extrinsic_param.z;
-    // }
+    if (config.pcl_data_type == kLivoxLidarCartesianCoordinateLowData) {
+      // temporary resolution
+      lidar_param.param.roll  = config.extrinsic_param.roll;
+      lidar_param.param.pitch = config.extrinsic_param.pitch;
+      lidar_param.param.yaw   = config.extrinsic_param.yaw;
+      lidar_param.param.x     = config.extrinsic_param.x / 10;
+      lidar_param.param.y     = config.extrinsic_param.y / 10;
+      lidar_param.param.z     = config.extrinsic_param.z / 10;
+    } else {
+      lidar_param.param.roll  = config.extrinsic_param.roll;
+      lidar_param.param.pitch = config.extrinsic_param.pitch;
+      lidar_param.param.yaw   = config.extrinsic_param.yaw;
+      lidar_param.param.x     = config.extrinsic_param.x;
+      lidar_param.param.y     = config.extrinsic_param.y;
+      lidar_param.param.z     = config.extrinsic_param.z;
+    }
 
-    lidar_param.param.roll  = 180.0F;
-    lidar_param.param.pitch = 0.0F;
-    lidar_param.param.yaw   = -90.0F;
-    lidar_param.param.x     = 0.0F;
-    lidar_param.param.y     = 0.0F;
-    lidar_param.param.z     = 0.0F;
+    // lidar_param.param.roll  = 180.0F;
+    // lidar_param.param.pitch = 0.0F;
+    // lidar_param.param.yaw   = -90.0F;
+    // lidar_param.param.x     = 0.0F;
+    // lidar_param.param.y     = 0.0F;
+    // lidar_param.param.z     = 0.0F;
+    
     pub_handler().AddLidarsExtParam(lidar_param);
   }
 
